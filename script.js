@@ -105,8 +105,7 @@ function arrayManipulation(arr, command, location, value) {
       arr.push(value);
       return arr;
     }
-   return arr.unshift(value);
-  
+    return arr.unshift(value);
   }
 }
 
@@ -117,3 +116,19 @@ arrayManipulation([1, 2, 3], "remove", "beginning"); // 1
 arrayManipulation([1, 2, 3], "add", "beginning", 20); // [20,1,2,3]
 
 arrayManipulation([1, 2, 3], "add", "end", 30); // [1,2,3,30]
+
+// isPalindrome
+// A Palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward. This function should take in one parameter and returns true or false if it is a palindrome. As a bonus, allow your function to ignore whitespace and capitalization so that isPalindrome(‘a man a plan a canal Panama’); returns true
+
+function isPalindrome(string) {
+  const stringToLowerCase = string.toLowerCase();
+  return stringToLowerCase === stringToLowerCase.split("").reverse().join("");
+}
+
+isPalindrome("testing"); // false
+
+isPalindrome("tacocat"); // true
+
+isPalindrome("hannah"); // true
+
+isPalindrome("robert"); // false
