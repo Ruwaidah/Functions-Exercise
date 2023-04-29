@@ -68,7 +68,6 @@ function singleLetterCount(word, letter) {
   let total = 0;
   const letterTolower = letter.toLowerCase();
   const wordToLower = word.toLowerCase();
-  console.log(letterTolower, wordToLower);
   for (let i of wordToLower) if (i === letterTolower) total++;
   return total;
 }
@@ -89,3 +88,32 @@ function multipleLetterCount(string) {
 
 multipleLetterCount("hello"); // {h:1, e: 1, l: 2, o:1}
 multipleLetterCount("person"); // {p:1, e: 1, r: 1, s:1, o:1, n:1}
+
+// arrayManipulation
+// - this function should take in at most four parameters (an array, command, location, and value).
+//     - If the command is “remove” and the location is “end”, the function should remove the last value in the array and return the value removed. (In this case, the function only needs three arguments.)
+//     - If the command is “remove” and the location is “beginning”, the function should remove the first value in the array and return the value removed. (In this case, the function only needs three arguments.)
+//     - If the command is “add” and the location is “beginning”, the function should add the value (fourth parameter) to the beginning of the array and return the array.
+// - If the command is “add” and the location is “end”, the function should add the value (fourth parameter) to the end of the array and return the array.
+
+function arrayManipulation(arr, command, location, value) {
+  if (command === "remove") {
+    if (location === "end") return arr.pop();
+    return arr.shift();
+  } else {
+    if (location === "end") {
+      arr.push(value);
+      return arr;
+    }
+   return arr.unshift(value);
+  
+  }
+}
+
+arrayManipulation([1, 2, 3], "remove", "end"); // 3
+
+arrayManipulation([1, 2, 3], "remove", "beginning"); // 1
+
+arrayManipulation([1, 2, 3], "add", "beginning", 20); // [20,1,2,3]
+
+arrayManipulation([1, 2, 3], "add", "end", 30); // [1,2,3,30]
