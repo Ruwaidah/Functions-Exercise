@@ -132,3 +132,31 @@ isPalindrome("tacocat"); // true
 isPalindrome("hannah"); // true
 
 isPalindrome("robert"); // false
+
+// Bonus
+// Rock / Paper / Scissor
+// using your knowledge so far, build a game of Rock/Paper/Scissor where through the use of the prompt function, a user can enter their choice and based on a random selection - they can either tie/win or lose against a computer.
+
+function rockPaperScissor() {
+  const elements = ["rock", "paper", "scissor"];
+  const element = {
+    rock: "scissor",
+    paper: "rock",
+    scissor: "rock",
+  };
+  const player = prompt("Pick one: Rock, Paper, Scissor");
+  const playerToLowerCase = player.toLowerCase();
+  const computerPick = Math.floor(Math.random() * 3);
+  if (elements.indexOf(playerToLowerCase) >= 0) {
+    if (player === elements[computerPick])
+      return `You: ${player} \n Computer: ${elements[computerPick]} \n Tie`;
+    else if (element[player] === elements[computerPick])
+      return `You: ${player} \n Computer: ${elements[computerPick]} \n You Win`;
+    else
+      return `You: ${player} \n Computer: ${elements[computerPick]} \n You Lost`;
+  } else {
+    return "Invalid Input";
+  }
+}
+
+rockPaperScissor();
